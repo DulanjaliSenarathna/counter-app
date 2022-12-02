@@ -3,7 +3,8 @@ import React, { Component } from 'react';
  class Counter extends Component {
 
     state = {
-        count:0
+        count:0,
+        tags : ["tag1","tag2","tag3"] //array of tags
     };
     
     render() { 
@@ -12,7 +13,8 @@ import React, { Component } from 'react';
         <div> 
             <span className = {this.getBadgeClasses()}>{this.formatCount()}</span>
             <button className='btn btn-secondary btn-sm'>Increament</button>
-        </div>
+            <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+        </div>//react needs unique key values to check the virtual DOM changes to compare with previous elements.in this case we assume every tags different from each other
         ) ;//jsx expression
     }
 
