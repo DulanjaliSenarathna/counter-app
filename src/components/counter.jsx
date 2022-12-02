@@ -8,8 +8,12 @@ import React, { Component } from 'react';
     
     render() { 
         
-        return (<div> <span>{this.formatCount()}</span>
-        <button>Increament</button></div>) ;//jsx expression
+        return (
+        <div> 
+            <span className='badge badge-primary m-2'>{this.formatCount()}</span>
+            <button className='btn btn-secondary btn-sm'>Increament</button>
+        </div>
+        ) ;//jsx expression
     }
 
     formatCount(){
