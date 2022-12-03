@@ -6,16 +6,21 @@ import React, { Component } from 'react';
         count:0,
         tags : ["tag1","tag2","tag3"] //array of tags
     };
+
+    renderTags(){
+        if(this.state.tags.length === 0) return <p>There are no tags!</p>;
+        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>; //react needs unique key values to check the virtual DOM changes to compare with previous elements.in this case we assume every tags different from each other
+    }
     
     render() { 
         
         return (
         <div> 
-            <span className = {this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button className='btn btn-secondary btn-sm'>Increament</button>
-            <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-        </div>//react needs unique key values to check the virtual DOM changes to compare with previous elements.in this case we assume every tags different from each other
+            {this.state.tags.length ===0 && 'Please create a new tag!'}
+            {this.renderTags()}
+        </div>
         ) ;//jsx expression
+        //line 19 - in js , true && 'some text' => output is => some text , reason for that js converts string to truthy or falsy value and compare it with first value
     }
 
     //set badge color orange when count = 0
