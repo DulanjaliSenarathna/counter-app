@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 
     state = {
         count:0,
-        tags : ["tag1","tag2","tag3"] //array of tags
+        tags : ["tag1","tag2","tag3"],//array of tags
+        product:'k'
     };
 
     //constructor(){ //line 20 arrow function karapu eka wenuwata mekath hari
@@ -17,9 +18,10 @@ import React, { Component } from 'react';
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>; //react needs unique key values to check the virtual DOM changes to compare with previous elements.in this case we assume every tags different from each other
     }
 
-    handleIncrement = () =>{
+    handleIncrement = product => {
+        console.log(product);
         this.setState({count : this.state.count+1}); //setState is a built in method of Component module, it aware of the state changes
-    }
+    };
     
     render() { 
         
@@ -28,12 +30,10 @@ import React, { Component } from 'react';
             {this.state.tags.length ===0 && 'Please create a new tag!'}
             {this.renderTags()}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increament</button>
+            <button onClick={() => this.handleIncrement(product)} className='btn btn-secondary btn-sm'>Increament</button>
         </div>
         ) ;//jsx expression
         //line 19 - in js , true && 'some text' => output is => some text , reason for that js converts string to truthy or falsy value and compare it with first value
-
-       
     }
 
     //set badge color orange when count = 0
