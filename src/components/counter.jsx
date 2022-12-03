@@ -3,7 +3,7 @@ import React, { Component } from 'react';
  class Counter extends Component {
 
     state = {
-        count:0,
+        count:this.props.value,
         tags : ["tag1","tag2","tag3"]//array of tags
     };
 
@@ -22,6 +22,7 @@ import React, { Component } from 'react';
     };
     
     render() { 
+        //console.log('props',this.props);//props = properties of this element (Counter)
         return (
         <div> 
             {this.state.tags.length ===0 && 'Please create a new tag!'}
