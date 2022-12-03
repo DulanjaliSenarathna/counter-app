@@ -7,13 +7,18 @@ import React, { Component } from 'react';
         tags : ["tag1","tag2","tag3"] //array of tags
     };
 
+    //constructor(){ //line 20 arrow function karapu eka wenuwata mekath hari
+        //super();
+        //this.handleIncrement = this.handleIncrement.bind(this);
+    //}
+
     renderTags(){
         if(this.state.tags.length === 0) return <p>There are no tags!</p>;
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>; //react needs unique key values to check the virtual DOM changes to compare with previous elements.in this case we assume every tags different from each other
     }
 
-    handleIncrement(){
-        console.log("Increment");
+    handleIncrement = () =>{
+        console.log("Increment",this);
     }
     
     render() { 
