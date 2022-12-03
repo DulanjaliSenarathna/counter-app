@@ -18,7 +18,7 @@ import React, { Component } from 'react';
     }
 
     handleIncrement = () =>{
-        console.log("Increment",this);
+        this.setState({count : this.state.count+1}); //setState is a built in method of Component module, it aware of the state changes
     }
     
     render() { 
@@ -27,6 +27,7 @@ import React, { Component } from 'react';
         <div> 
             {this.state.tags.length ===0 && 'Please create a new tag!'}
             {this.renderTags()}
+            <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increament</button>
         </div>
         ) ;//jsx expression
