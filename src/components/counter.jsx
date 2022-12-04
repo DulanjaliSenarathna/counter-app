@@ -22,13 +22,16 @@ import React, { Component } from 'react';
     };
     
     render() { 
-        //console.log('props',this.props);//props = properties of this element (Counter)
+        //console.log('props',this.props);//props = properties/attributes of this element (Counter)
+
         return (
         <div> 
+           
             {this.state.tags.length ===0 && 'Please create a new tag!'}
             {this.renderTags()}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increament</button>
+            <button onClick={this.props.onDelete} className='btn btn-danger btn-sm m-2'>Delete</button>
         </div>
         ) ;//jsx expression
         //line 19 - in js , true && 'some text' => output is => some text , reason for that js converts string to truthy or falsy value and compare it with first value
