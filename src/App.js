@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import NavBar from './components/navbar';
 import './App.css';
+import Counters from './components/counters';
+import { Component } from 'react';
 
-function App() {
+class App extends Component{
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NavBar/>
+    <main className='container'>
+      <Counters/>
+    </main>
+    </>
   );
+}
 }
 
 export default App;
+//previous we pass parent component's state to the child component via props, using parent-child relationship.
+//but now component tree=> App =>> NavBar , Counters(=> Counter) . No parent-child relationship between Navbar and Counters.
+//in this case, we lift  the state of the Counters component to App(parent) component.
+//then we can pass the state using props to all the children
