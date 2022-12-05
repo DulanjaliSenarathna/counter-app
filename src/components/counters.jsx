@@ -11,6 +11,16 @@ class Counters extends Component {
         ]
      } ;
 
+     handleIncrement = counter =>{
+        //create a new counters array and give it to the setState method
+        const counters = [...this.state.counters];//cloning counters array to new counter array
+        const index = counters.indexOf(counter);
+        counters[index] = {...counter};//clone the parameter of the handleIncrement function 
+        counters[index].value++;
+        console.log(this.state.counters[0]);
+        this.setState({counters});
+     };
+
      handleReset = () =>{
         const counters =  this.state.counters.map( c => {
            c.value = 0;
@@ -35,6 +45,7 @@ class Counters extends Component {
            <Counter 
            key={counter.id} 
            onDelete={this.handleDelete}
+           onIncrement ={this.handleIncrement}
           // value={counter.value}  instead of adding separate props, it's easy to add counter object. then we can access all prperties inside it
           // selected={counter.selected} 
           counter={counter}
