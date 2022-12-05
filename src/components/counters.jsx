@@ -11,15 +11,22 @@ class Counters extends Component {
         ]
      } 
 
-     handleDelete = ()=>{
-        console.log('Delete');
+     handleDelete = (counterID)=>{
+       const counters = this.state.counters.filter(c => c.id !== counterID);
+       this.setState({counters});
      }
 
     render() { 
         return (
         <div>
            {this.state.counters.map(counter => (
-           <Counter key={counter.id} value={counter.value} selected={true} onDelete={this.handleDelete} >
+           <Counter 
+           key={counter.id} 
+           onDelete={this.handleDelete}
+          // value={counter.value}  instead of adding separate props, it's easy to add counter object. then we can access all prperties inside it
+          // selected={counter.selected} 
+          counter={counter}
+           >
             </Counter>
            ))}
         </div>

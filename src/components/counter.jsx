@@ -3,7 +3,7 @@ import React, { Component } from 'react';
  class Counter extends Component {
 
     state = {
-        count:this.props.value,
+        count:this.props.counter.value, //value is not directly in props
         tags : ["tag1","tag2","tag3"]//array of tags
     };
 
@@ -31,7 +31,7 @@ import React, { Component } from 'react';
             {this.renderTags()}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increament</button>
-            <button onClick={this.props.onDelete} className='btn btn-danger btn-sm m-2'>Delete</button>
+            <button onClick={() => this.props.onDelete(this.props.counter.id)} className='btn btn-danger btn-sm m-2'>Delete</button>
         </div>
         ) ;//jsx expression
         //line 19 - in js , true && 'some text' => output is => some text , reason for that js converts string to truthy or falsy value and compare it with first value
