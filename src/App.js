@@ -13,6 +13,17 @@ class App extends Component{
     ]
  } ;
 
+ constructor(){
+  super();
+  console.log('App constructor');
+  //this.state = this.props.somthing; //initialize properties of state (set state , based on the props that received from the outside)
+ }; //constructor calls only when instance of class created
+
+ componentDidMount(){//this method calls, after component is rendered in to the DOM, best place to make Ajax calls for get data from server
+  //Ajax call
+  console.log('App mounted'); 
+ }; 
+
  handleIncrement = counter =>{
     //create a new counters array and give it to the setState method
     const counters = [...this.state.counters];//cloning counters array to new counter array
@@ -36,6 +47,7 @@ class App extends Component{
    this.setState({counters});
  }
   render(){
+    console.log('App rendered');
   return (
     <>
     <NavBar

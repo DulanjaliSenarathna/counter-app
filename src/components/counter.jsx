@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 
     render() { 
         //console.log('props',this.props);//props = properties/attributes of this element (Counter)
-
+        console.log('counter rendered');
         return (
         <div> 
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
