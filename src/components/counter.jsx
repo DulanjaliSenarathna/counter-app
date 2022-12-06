@@ -5,6 +5,13 @@ import React, { Component } from 'react';
     componentDidUpdate(prevProps,prevState){ //check the state and props changes in update phase
         console.log('Previous Props', prevProps);
         console.log('Previous State', prevState);
+        if(prevProps.counter.value !== this.props.counter.value){//compare current prop and previous prop
+            //Ajax call and get new data from server
+        }
+    };
+
+    componentWillUnmount(){
+        console.log('Component will unmout');//to to any any type of cleaner . ex: timer
     }
 
     //constructor(){ //line 20 arrow function karapu eka wenuwata mekath hari
