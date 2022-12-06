@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
  class Counter extends Component {
 
+    componentDidUpdate(prevProps,prevState){ //check the state and props changes in update phase
+        console.log('Previous Props', prevProps);
+        console.log('Previous State', prevState);
+    }
+
     //constructor(){ //line 20 arrow function karapu eka wenuwata mekath hari
         //super();
         //this.handleIncrement = this.handleIncrement.bind(this);
