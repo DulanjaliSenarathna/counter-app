@@ -7,7 +7,7 @@ class Counters extends Component {
 
         console.log('counters rendered');
 
-        const {onReset, counters, onDelete, onIncrement} = this.props;//destructuring
+        const {onReset, counters, onDelete, onIncrement,onDecrement} = this.props;//destructuring
         return (
 
         <div>
@@ -19,6 +19,7 @@ class Counters extends Component {
            key={counter.id} 
            onDelete={onDelete}
            onIncrement ={onIncrement}
+           onDecrement = {onDecrement}
           // value={counter.value}  instead of adding separate props, it's easy to add counter object. then we can access all prperties inside it
           // selected={counter.selected} 
           counter={counter}

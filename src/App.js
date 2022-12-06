@@ -34,6 +34,16 @@ class App extends Component{
     this.setState({counters});
  };
 
+ handleDecrement = counter =>{
+  //create a new counters array and give it to the setState method
+  const counters = [...this.state.counters];//cloning counters array to new counter array
+  const index = counters.indexOf(counter);
+  counters[index] = {...counter};//clone the parameter of the handleIncrement function 
+  counters[index].value--;
+  console.log(this.state.counters[0]);
+  this.setState({counters});
+};
+
  handleReset = () =>{
     const counters =  this.state.counters.map( c => {
        c.value = 0;
@@ -59,6 +69,7 @@ class App extends Component{
       onReset={this.handleReset}
       onIncrement={this.handleIncrement}
       onDelete={this.handleDelete}
+      onDecrement = {this.handleDecrement}
       />
     </main>
     </>
